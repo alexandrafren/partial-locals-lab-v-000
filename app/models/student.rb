@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
   def self.search(keyword)
     @students = []
     Student.all.each do |s|
-      if s.name.scan(/\w+/).include?(keyword)
+      if s.name.split("").include?(keyword.split(""))
         @students << s
       end
     end

@@ -16,10 +16,11 @@ class Student < ActiveRecord::Base
 
   def search(keyword)
     @students = []
-    Student.all.each do |s| 
+    Student.all.each do |s|
       if s.name.include?(keyword)
-        @students << s 
+        @students << s
       end
     end
-    
+  end
+
 end

@@ -19,7 +19,7 @@ class Student < ActiveRecord::Base
     Student.all.each do |s|
       if keyword == ""
         @students == Student.all
-      elsif s.name.downcase.include?(keyword)
+      elsif s.name.downcase.include?(keyword.to_s)
         @students << s
       end
     end

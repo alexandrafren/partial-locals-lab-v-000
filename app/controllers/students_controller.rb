@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
   end
 
   def search
-    @student = Student.find_by(name: params[:student][:name])
+    @student = Student.search(params[:student][:name])
   end
 
   def student_params

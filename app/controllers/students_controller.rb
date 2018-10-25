@@ -25,12 +25,7 @@ class StudentsController < ApplicationController
   end
 
   def search
-    @students = []
-    params[:students][].each do |p|
-      if p == Student.all.any?
-        @students << p 
-      end
-    end
+    @student = Student.find_by(name: params[:student][:name])
   end
 
   def student_params

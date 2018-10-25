@@ -14,7 +14,12 @@ class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
 
-  def search(student)
-    Student.find_by(name: student)
-  end
+  def search(keyword)
+    @students = []
+    Student.all.each do |s| 
+      if s.name.include?(keyword)
+        @students << s 
+      end
+    end
+    
 end

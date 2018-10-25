@@ -14,7 +14,7 @@ class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
 
-  def search(keyword)
+  def self.search(keyword)
     @students = []
     Student.all.each do |s|
       if s.name.include?(keyword)

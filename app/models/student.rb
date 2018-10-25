@@ -17,7 +17,9 @@ class Student < ActiveRecord::Base
   def self.search(keyword)
     @students = []
     Student.all.each do |s|
-      if s.name.split("").include?(keyword.split(""))
+      if keyword == ""
+        @students == Student.all
+      elsif s.name.downcase.include?(keyword)
         @students << s
       end
     end
